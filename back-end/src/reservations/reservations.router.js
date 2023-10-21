@@ -1,8 +1,14 @@
 const router = require("express").Router();
 const methodNotAllowed = require("../errors/methodNotAllowed");
 const controller = require("./reservations.controller");
+const seatRouter = require("../seat/seat.router");
 
-//specific routes first!
+router.use("/:reservation_Id/seat", seatRouter);
+
+router
+  .route("/:reservation_Id/edit")
+  .put(controller.update)
+  .all(methodNotAllowed);
 
 router
   .route("/:reservation_Id/status")
