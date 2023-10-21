@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import ReservationTable from "./reservationTable/ReservationTable";
 import { listReservations, listTables } from "../utils/api";
-import ErrorAlert from "../layout/ErrorAlert";
+import ReservationTable from "./reservationTable/ReservationTable";
 import { useHistory } from "react-router-dom";
 import { previous, next } from "../utils/date-time";
 import TableList from "./TableList/TableList";
+import ErrorAlert from "../layout/ErrorAlert";
 
 /**
  * Defines the dashboard page.
@@ -52,13 +52,13 @@ function Dashboard({ date }) {
       </div>
       <div className="pb-2 d-flex justify-content-center">
         <button className="btn btn-primary mr-1" onClick={handleToday}>
-          today
+          Today
         </button>
         <button className="btn btn-primary mr-1" onClick={handlePrev}>
-          previous
+          Previous Day
         </button>
         <button className="btn btn-primary" onClick={handleNext}>
-          next
+          Next Day
         </button>
       </div>
       <ErrorAlert error={reservationsError} />

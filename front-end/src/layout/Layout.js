@@ -13,9 +13,9 @@ import "./Layout.css";
  */
 function Layout() {
   return (
-    <div className="container-fluid">
-      <div className="row h-100">
-        <div className="col-md-2 side-bar">
+    <div className="container-fluid p-0 m-0">
+      <div>
+        <div className="navbar navbar-expand-lg side-bar justify-content-center">
           <Menu />
         </div>
         <div className="col">

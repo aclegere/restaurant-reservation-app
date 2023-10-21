@@ -1,7 +1,7 @@
 import React from "react";
-import ReservationRow from "./ReservationRow";
 import { cancelReservation } from "../../utils/api";
 import { useHistory } from "react-router-dom";
+import ReservationRow from "./ReservationRow";
 
 export default function ReservationTable({
   reservations,
@@ -48,10 +48,10 @@ export default function ReservationTable({
             <th scope="col">First</th>
             <th scope="col">Last</th>
             <th scope="col">Number</th>
-            <th scope="col">Guests</th>
+            <th scope="col">Number of Guests</th>
             <th scope="col">Time</th>
             <th scope="col">Status</th>
-            <th scope="col">Seat</th>
+            <th scope="col">Seat Guest?</th>
             <th scope="col">Edit</th>
             <th scope="col">Cancel</th>
           </tr>

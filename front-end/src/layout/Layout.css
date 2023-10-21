@@ -1,4 +1,7 @@
 .side-bar {
   background-color: #393a44;
   min-width: 200px;
+  /*@media only screen and (min-width: 870px) {
+    height: max-content;
+  }*/
 }
