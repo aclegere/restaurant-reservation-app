@@ -5,8 +5,7 @@
 import formatReservationDate from "./format-reservation-date";
 import formatReservationTime from "./format-reservation-date";
 
-const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:5001";
+const API_BASE_URL = "https://capstone-backend-rvyy.onrender.com";
 
 console.log("url:", API_BASE_URL);
 /**
