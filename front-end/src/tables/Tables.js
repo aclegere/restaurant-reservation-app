@@ -59,7 +59,7 @@ export default function Tables() {
           className="form-control mb-1"
           id="capacity"
           placeholder="Number of guests"
-          value={tableForm.capacity}
+          value={Number(tableForm.capacity)}
           onChange={handleFormChange}
           min="1"
           required

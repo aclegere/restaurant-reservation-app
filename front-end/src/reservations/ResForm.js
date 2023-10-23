@@ -12,9 +12,26 @@ export default function Form({
     history.goBack();
   };
 
+  // Phone number validation function
+  const isPhoneNumberValid = (phoneNumber) => {
+    return /^\d{10}$/.test(phoneNumber); // Checks if the phone number consists of 10 digits
+  };
+
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    // Check if the mobile_number is valid before submitting the form
+    if (!isPhoneNumberValid(initialformData.mobile_number)) {
+      alert("Invalid phone number. Please enter a 10-digit number.");
+      return;
+    }
+
+    handleSubmit(e);
+  };
+
   return (
     initialformData && (
-      <form onSubmit={handleSubmit} className="form-group">
+      <form onSubmit={submitForm} className="form-group">
         <fieldset>
           <legend className="d-flex justify-content-center">
             Guest Information
@@ -45,7 +62,7 @@ export default function Form({
           </div>
           <div className="pb-1">
             <input
-              type="tel"
+              type="number"
               name="mobile_number"
               className="form-control"
               id="mobile_number"
@@ -54,6 +71,11 @@ export default function Form({
               onChange={handleFormChange}
               required
             />
+            {!isPhoneNumberValid(initialformData.mobile_number) && (
+              <p className="text-danger">
+                Invalid phone number. Please enter a 10-digit number.
+              </p>
+            )}
           </div>
           <div className="pb-1">
             <input
@@ -62,7 +84,7 @@ export default function Form({
               className="form-control"
               id="people"
               placeholder={initialformData?.people || "Number of guests"}
-              value={initialformData?.people}
+              value={Number(initialformData?.people)}
               onChange={handleFormChange}
               required
               min="1"
@@ -74,7 +96,7 @@ export default function Form({
             name="reservation_date"
             className="form-control mb-1"
             id="reservation_date"
-            placeholder={initialformData?.reservation_date || "YYY-MM-DD"}
+            placeholder={initialformData?.reservation_date || "YYYY-MM-DD"}
             value={initialformData?.reservation_date}
             onChange={handleFormChange}
             required
