@@ -7,7 +7,7 @@ async function validateTable(req, res, next) {
   const { table_id } = req.params;
   const currentTable = await tableService.read(table_id);
   const reservation = res.locals.reservation;
-  if (reservation.people > currentTable.capacity) {
+  if (Number(reservation.people) > Number(currentTable.capacity)) {
     return next({
       status: 400,
       message: "Table does not have sufficient capacity.",
